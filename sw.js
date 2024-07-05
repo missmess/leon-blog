@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-a6dc1e7ef90a4d5e4354.js"
+    "url": "webpack-runtime-749eab9fef49b60cd32f.js"
   },
   {
     "url": "framework-3ff98c554cb9fbce6971.js"
@@ -39,15 +39,15 @@ self.__precacheManifest = [
     "url": "532a2f07-52d31fe1b2dac26aea81.js"
   },
   {
-    "url": "app-66170ba3daa9c8c47725.js"
+    "url": "app-5c21013ede9521395041.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "4c92c7b0f7ea8e35a3ff4c15cae3bb18"
+    "revision": "074c5001d5cb7c5cc87eb971c4e25c5f"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "bb8fd967969eae19c5c2f47bc21e45b5"
+    "revision": "26451d80f07e313a8fd985644f82c391"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -152,12 +152,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/wang-blog`), ``)
+  pathname = pathname.replace(new RegExp(`^/leon-blog`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/wang-blog/app-66170ba3daa9c8c47725.js`))) {
+  if (!resources || !(await caches.match(`/leon-blog/app-5c21013ede9521395041.js`))) {
     return await fetch(event.request)
   }
 
@@ -170,7 +170,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/wang-blog/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/leon-blog/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
