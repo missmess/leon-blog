@@ -39,11 +39,11 @@ self.__precacheManifest = [
     "url": "532a2f07-52d31fe1b2dac26aea81.js"
   },
   {
-    "url": "app-4d40ea108e0209a43274.js"
+    "url": "app-277c205343c032065300.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "a54a9a22786d4de1a7ea4fa394e5b5cc"
+    "revision": "d370ef093378d50c6eee7b15ab60d0d7"
   },
   {
     "url": "manifest.webmanifest",
@@ -157,7 +157,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/leon-blog/app-4d40ea108e0209a43274.js`))) {
+  if (!resources || !(await caches.match(`/leon-blog/app-277c205343c032065300.js`))) {
     return await fetch(event.request)
   }
 
